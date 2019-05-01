@@ -1,0 +1,23 @@
+package test;
+
+public class Q2 {
+
+	public static void a() {
+		A a = new A();
+		while (a.r < 10)
+			a.m1();
+		a.m2();
+		while (A.v < 10) {
+			Thread t1 = new Thread(() -> a.m3());
+			Thread t2 = new Thread(() -> a.m4());
+			Thread t3 = new Thread(() -> a.m5());
+			t1.start();
+			t2.start();
+			t3.start();
+			a.m2();
+		}
+	}
+
+	public static void b() {
+	}
+}

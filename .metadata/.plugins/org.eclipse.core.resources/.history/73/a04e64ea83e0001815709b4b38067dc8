@@ -1,0 +1,13 @@
+package test;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
+public class Q3 {
+	public static double calc(String expression) {
+		LinkedList<String> queue = new LinkedList<>();
+		Stack<String> stack = new Stack<>();
+		
+		return 0;
+	}
+}

@@ -1,0 +1,37 @@
+package test;
+
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+//		Worker w1 = new Worker("Elad", 123123, 24);
+////
+//		FileOutputStream fos = new FileOutputStream("t2.tmp");
+//		ObjectOutputStream oos = new ObjectOutputStream(fos);
+//		oos.writeObject(w1);
+//		oos.close();
+
+		FileInputStream fos = new FileInputStream("t2.tmp");
+//		ObjectInputStream oos = new ObjectInputStream(fos);
+//		Worker w1 = (Worker) oos.readObject();
+
+//		System.out.println(w1);
+
+//		XMLEncoder enc = new XMLEncoder(fos);
+//		enc.writeObject(w1);
+//		enc.close();
+
+		XMLDecoder dec = new XMLDecoder(fos);
+		Worker w2 = (Worker) dec.readObject();
+		System.out.println(w2);
+		dec.close();
+	}
+
+}

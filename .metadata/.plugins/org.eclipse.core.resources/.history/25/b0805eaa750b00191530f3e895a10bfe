@@ -1,0 +1,12 @@
+package test;
+
+public class Q1 {
+	
+	public class Mobster {
+	}
+
+	public class Boss extends Mobster{
+		
+	}
+
+}

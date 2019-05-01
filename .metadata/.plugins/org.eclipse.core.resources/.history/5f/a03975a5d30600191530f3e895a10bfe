@@ -1,0 +1,53 @@
+package test;
+
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Worker implements Serializable {
+
+	private String name;
+	private int id;
+	private int age;
+
+	public Worker(String name, int id, int age) {
+		this.name = name;
+		this.id = id;
+		this.age = age;
+	}
+
+	public Worker() {
+		name = "";
+		id = 0;
+		age = 0;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+}

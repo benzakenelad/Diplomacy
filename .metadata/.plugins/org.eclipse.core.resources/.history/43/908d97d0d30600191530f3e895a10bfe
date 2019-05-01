@@ -1,0 +1,19 @@
+package test;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+//		Worker w1 = new Worker("Elad", 123123, 24);
+
+		FileInputStream fos = new FileInputStream("t.tmp");
+		ObjectInputStream oos = new ObjectInputStream(fos);
+		Worker w1 = (Worker) oos.readObject();
+		oos.close();
+		System.out.println(w1);
+	}
+
+}

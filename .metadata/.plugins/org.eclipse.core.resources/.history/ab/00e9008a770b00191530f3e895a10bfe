@@ -1,0 +1,18 @@
+package test;
+
+import test.Q2.*;
+
+public class MainTrain {
+
+	public static void main(String[] args) {
+
+		// Goblin error=new Goblin(...); // cannot create goblins without the builder
+		new Goblin.GoblinBuilder("zoot", "green").withSize(500).withIq((byte) 40).build();
+		new Goblin.GoblinBuilder("danganesh", "red").withSize(600).build();
+		new Goblin.GoblinBuilder("gilgal", "yellow").withIq((byte) 10).withSize(0).build();
+		new Goblin.GoblinBuilder("zootah", "red").withIq((byte) 100).build();
+
+		System.out.println("done");
+	}
+
+}

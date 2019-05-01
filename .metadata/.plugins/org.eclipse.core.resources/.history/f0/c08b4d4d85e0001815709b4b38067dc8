@@ -1,0 +1,48 @@
+package test;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
+public class Q3 {
+	public static double calc(String expression) {
+		LinkedList<String> queue = new LinkedList<>();
+		Stack<String> stack = new Stack<>();
+		int len = expression.length();
+		String token;
+		for (int i = 0; i < len; i++) {
+			if (expression.charAt(i) <= '9' && expression.charAt(i) >= '0') {
+				String num = expression.charAt(i++) + "";
+				while (expression.charAt(i) <= '9' && expression.charAt(i) >= 0)
+					num = num + expression.charAt(i++);
+				token = num;
+			} else {
+				token = expression.charAt(i) + "";
+			}
+
+			switch (token) {
+			case '-':
+
+				break;
+			case '+':
+
+				break;
+			case '*':
+
+				break;
+			case '/':
+
+				break;
+			case '(':
+
+				break;
+			case ')':
+
+				break;
+			default:
+				queue.addFirst(token + "");
+				break;
+			}
+		}
+		return 0;
+	}
+}

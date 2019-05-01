@@ -1,0 +1,11 @@
+package test;
+
+public class PushableAdapter implements Pushable {
+
+	@Override
+	public void push(int heading) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Worker w1 = new Worker("Elad", 123123, 24);
+		
+	}
+
+}

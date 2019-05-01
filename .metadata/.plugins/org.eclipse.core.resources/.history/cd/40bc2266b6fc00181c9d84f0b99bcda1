@@ -1,0 +1,92 @@
+package test;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
+public class Q3 {
+	public static double calc(String expression) {
+		LinkedList<String> queue = new LinkedList<>();
+		Stack<String> stack = new Stack<>();
+		int len = expression.length();
+		String token;
+
+		for (int i = 0; i < len; i++) {
+			if (expression.charAt(i) <= '9' && expression.charAt(i) >= '0') {
+				token = expression.charAt(i) + "";
+				while (i + 1 < len && ((expression.charAt(i + 1) <= '9' && expression.charAt(i + 1) >= '0')
+						|| (expression.charAt(i + 1) == '.')))
+					token = token + expression.charAt(++i);
+			} else
+				token = expression.charAt(i) + "";
+
+			if (isDouble(s)) {
+				queue.add(s);
+			} else
+				switch (token) {
+				case "-":
+					while (!stack.isEmpty() && (stack.peek().equals("*") || stack.peek().equals("/"))) {
+						queue.addLast(stack.pop());
+					}
+					stack.push(token);
+					break;
+				case "+":
+					while (!stack.isEmpty()
+							&& (stack.peek().equals("*") || stack.peek().equals("/") || stack.peek().equals("-"))) {
+						queue.addLast(stack.pop());
+					}
+					stack.push(token);
+					break;
+				case "*":
+				case "/":
+				case "(":
+					stack.push(token);
+					break;
+				case ")":
+					while (!stack.isEmpty() && !stack.peek().equals("(")) {
+						queue.addLast(stack.pop());
+					}
+					stack.pop();
+					break;
+				default:
+					queue.addLast(token);
+					break;
+				}
+		}
+		while (!stack.isEmpty())
+			queue.addLast(stack.pop());
+		for (String str : queue)
+			System.out.println(str);
+		Expression exp = f(queue);
+		return Double.parseDouble(String.format("%.3f", exp.calculate()));
+	}
+
+	private static Expression f(LinkedList<String> queue) {
+		String exp = queue.removeLast();
+		Expression returnedExp = null;
+		if (exp.equals("+") || exp.equals("-") || exp.equals("*") || exp.equals("/")) {
+			Expression right = f(queue);
+			Expression left = f(queue);
+
+			switch (exp) {
+			case "+":
+				returnedExp = new Plus(left, right);
+				break;
+			case "-":
+				returnedExp = new Minus(left, right);
+				break;
+			case "*":
+				returnedExp = new Mul(left, right);
+				break;
+			case "/":
+				returnedExp = new Div(left, right);
+				break;
+			default:
+				break;
+			}
+
+		} else
+			returnedExp = new Number(Double.parseDouble(exp));
+
+		return returnedExp;
+	}
+}

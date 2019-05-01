@@ -1,0 +1,12 @@
+package test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Level l = new Level();
+		l.onChange = () -> System.out.println("a change!");
+		l.f(); // output = "a change!"
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package test;
+
+public class Level {
+	public interface IOnChangeAction {
+		public void onChange();
+		public int onChange2(int a);
+	}
+
+	public IOnChangeAction onChangee = null;
+
+	public void f() {
+		onChangee.onChange();
+	}
+
+}

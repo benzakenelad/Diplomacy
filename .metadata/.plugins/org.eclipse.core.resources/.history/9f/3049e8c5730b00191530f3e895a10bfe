@@ -1,0 +1,10 @@
+package test;
+
+public class Q2 {
+
+	public static void a(){
+	}
+	
+	public static void b(){
+	}
+}

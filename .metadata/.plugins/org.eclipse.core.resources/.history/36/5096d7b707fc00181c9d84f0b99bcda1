@@ -1,0 +1,17 @@
+package test;
+
+public class PushableAdapter implements Pushable {
+
+	private Moveable moveable;
+
+	public PushableAdapter(Moveable moveable) {
+		super();
+		this.moveable = moveable;
+	}
+
+	@Override
+	public void push(int heading) {
+
+	}
+
+}

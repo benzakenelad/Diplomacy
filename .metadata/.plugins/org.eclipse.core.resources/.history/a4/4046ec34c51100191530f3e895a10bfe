@@ -1,0 +1,49 @@
+package test2;
+
+import java.util.HashMap;
+import java.util.PriorityQueue;
+
+public class Controller {
+
+	public interface Command {
+		int getID();
+
+		void execute();
+	}
+
+	public class ACommand {
+		protected long executionTime;
+		protected Command cmd;
+
+		public ACommand(Command cmd) {
+			this.cmd = cmd;
+		}
+
+		public void execute() {
+			long startTime = System.currentTimeMillis();
+			cmd.execute();
+			this.executionTime = System.currentTimeMillis() - startTime;
+		}
+
+	}
+
+	PriorityQueue<ACommand> queue;
+	HashMap<Integer, ACommand> map;
+
+	public Controller() {
+
+	}
+
+	public void insertCommand(Command c) {
+	}
+
+	public void executeOne() {
+		if (!queue.isEmpty())
+			queue.poll().execute();
+	}
+
+	public void executeAll() {
+		while (!queue.isEmpty())
+			queue.poll().execute();
+	}
+}

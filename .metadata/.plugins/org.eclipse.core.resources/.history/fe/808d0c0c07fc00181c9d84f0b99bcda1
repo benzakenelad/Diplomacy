@@ -1,0 +1,24 @@
+package test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Level l = new Level();
+		l.onChangee = new Level.IOnChangeAction() {
+
+			@Override
+			public int onChange2(int a) {
+				return 0;
+			}
+
+			@Override
+			public void onChange() {
+				System.out.println("blabla");
+
+			}
+		};
+		l.f();
+
+	}
+
+}

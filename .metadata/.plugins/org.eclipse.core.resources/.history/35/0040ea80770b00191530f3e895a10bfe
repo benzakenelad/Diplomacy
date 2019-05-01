@@ -1,0 +1,24 @@
+package test;
+
+public class MainTrain {
+
+	public static void main(String[] args) {
+
+		test2();
+		System.out.println("done");
+	}
+
+	private static void test2() {
+		Q2.a();
+		String s = "";
+		while (!A.q.isEmpty())
+			s += A.q.poll();
+		if (!A.s.equals("1234567891012345678910"))
+			System.out.println("Q2a wrong logic for m1,m2 (-12)");
+
+		if (!s.contains("566778899"))
+			System.out.println("Q2a wrong logic for m3,m4,m5 (-12)");
+
+	}
+
+}

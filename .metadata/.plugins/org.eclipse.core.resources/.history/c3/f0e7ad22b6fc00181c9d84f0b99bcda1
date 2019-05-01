@@ -1,0 +1,88 @@
+package test;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class Q3 {
+	public static double calc(String expression) {
+		Queue<String> queue = new LinkedList<String>();
+		Stack<String> stack = new Stack<String>();
+		Stack<Expression> stackExp = new Stack<Expression>();
+
+		String[] split = expression.split("(?<=[-+*/()])|(?=[-+*/()])");
+
+		for (String s : split) {
+			if (isDouble(s)) {
+				queue.add(s);
+			} else {
+				switch (s) {
+				case "/":
+				case "*":
+				case "(":
+					stack.push(s);
+					break;
+				case "+":
+				case "-":
+					while (!stack.empty() && (!stack.peek().equals("("))) {
+						queue.add(stack.pop());
+					}
+					stack.push(s);
+					break;
+				case ")":
+					while (!stack.peek().equals("(")) {
+						queue.add(stack.pop());
+					}
+					stack.pop();
+					break;
+				}
+			}
+		}
+		while (!stack.isEmpty()) {
+			queue.add(stack.pop());
+		}
+		for (String str : queue)
+			System.out.println(str);
+		Expression exp = f(queue);
+		return Double.parseDouble(String.format("%.3f", exp.calculate()));
+	}
+
+	private static Expression f(LinkedList<String> queue) {
+		String exp = queue.removeLast();
+		Expression returnedExp = null;
+		if (exp.equals("+") || exp.equals("-") || exp.equals("*") || exp.equals("/")) {
+			Expression right = f(queue);
+			Expression left = f(queue);
+
+			switch (exp) {
+			case "+":
+				returnedExp = new Plus(left, right);
+				break;
+			case "-":
+				returnedExp = new Minus(left, right);
+				break;
+			case "*":
+				returnedExp = new Mul(left, right);
+				break;
+			case "/":
+				returnedExp = new Div(left, right);
+				break;
+			default:
+				break;
+			}
+
+		} else
+			returnedExp = new Number(Double.parseDouble(exp));
+
+		return returnedExp;
+	}
+
+	private static boolean isDouble(String val) {
+		try {
+			Double.parseDouble(val);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+}

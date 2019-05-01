@@ -1,0 +1,12 @@
+package test;
+
+public class Q2 {
+
+	public static void a() {
+		while (A.r < 10)
+			A.m1();
+	}
+
+	public static void b() {
+	}
+}

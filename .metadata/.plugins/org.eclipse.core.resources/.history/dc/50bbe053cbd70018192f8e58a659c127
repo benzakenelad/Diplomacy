@@ -1,0 +1,15 @@
+package boot;
+
+import test.Expression;
+import test.Mul;
+import test.Number;
+import test.Plus;
+
+public class Main {
+
+	public static void main(String[] args) {
+		new Mul(new Plus(new Number(5), new Number(10)), new Number(4));
+
+	}
+
+}

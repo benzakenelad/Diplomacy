@@ -1,0 +1,6 @@
+[0] Program running at EladBenZaken/192.168.99.1
+[1] Connecting to host EladBenZaken/192.168.99.1 port 16713...
+[2] Connected.
+[3] ===> NME ( 'D-BraneExampleBot 3' ) ( '0' )
+[4] <=== REJ ( NME ( 'D-BraneExampleBot 3' ) ( '0' ) )
+[5] ERROR: REJ ( NME ( 'D-BraneExampleBot 3' ) ( '0' ) )

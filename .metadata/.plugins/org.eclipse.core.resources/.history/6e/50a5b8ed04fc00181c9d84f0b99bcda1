@@ -1,0 +1,25 @@
+package test;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Level l = new Level();
+		new IOnChangeAction() {
+
+			@Override
+			public int onChange2(int a) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public void onChange() {
+				// TODO Auto-generated method stub
+
+			}
+		};
+		l.f();
+
+	}
+
+}
